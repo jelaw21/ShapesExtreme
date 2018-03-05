@@ -16,12 +16,15 @@ public class Board extends JPanel implements ActionListener {
     public Board(){
         setPreferredSize(new Dimension(600,800));
         setBackground(Color.BLACK);
-        timer = new Timer(1000/60, this);
-        timer.start();
 
         for(int i = 0; i < friendlyNum; i++){
             actors.add(new Friendly(Color.red, getWidth()/2, getHeight()/2, 5));
         }
+
+        timer = new Timer(1000/60, this);
+        timer.start();
+
+
 
     }
 

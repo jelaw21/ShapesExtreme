@@ -28,12 +28,15 @@ public class Sprite implements Move, Paint {
         this.width = width;
         this.height = height;
 
-        while (dx < 1 || dy < 1){
-            double angle = 2 * Math.PI * Math.random();
-            double speed = 1 + SPEED * Math.random();
+        while((int)dx == 0 || (int)dy == 0) {
+            double angle = 2 * Math.PI * (Math.random() + 1);
+            double speed = (SPEED * (Math.random() + 1));
             dx = Math.cos(angle) * speed;
             dy = Math.sin(angle) * speed;
         }
+
+
+
     }
 
     /**

@@ -14,8 +14,6 @@ public class Game extends JFrame{
 
         pack();
         setLocationRelativeTo(null);
-
-
     }
 
     public static void main(String[] args){
