@@ -7,7 +7,7 @@ public class Sprite implements Move, Paint {
 
     double dx, dy;
 
-    final int SPEED = 10;
+    final int SPEED = 5;
 
     /**
      * This constructor builds an object from the Sprite class. These will be the main actors of our, or any, game, blah blah blah
@@ -49,6 +49,11 @@ public class Sprite implements Move, Paint {
 
         return this.getBounds().intersects(other.getBounds());
 
+    }
+
+    public void bounce(){
+        dx*=-1;
+        dy*=-1;
     }
 
 

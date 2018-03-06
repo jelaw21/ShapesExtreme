@@ -11,12 +11,12 @@ public class Game extends JFrame{
         setTitle("SHAPES EXTREME");
         board = new Board();
         add(board);
-
         pack();
         setLocationRelativeTo(null);
     }
 
     public static void main(String[] args){
         Game game = new Game();
+        game.board.setup();
     }
 }
