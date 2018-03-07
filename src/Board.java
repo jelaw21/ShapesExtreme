@@ -58,6 +58,10 @@ public class Board extends JPanel implements ActionListener {
         }
     }
 
+    public void setPlayerPos(int x, int y){
+        actors.get(0).setPosition(x, y);
+    }
+
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         for(int i = 0; i < actors.size(); i++){
