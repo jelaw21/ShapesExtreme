@@ -1,8 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 
 public class Game extends JFrame{
@@ -18,6 +16,16 @@ public class Game extends JFrame{
         add(board);
         pack();
         setLocationRelativeTo(null);
+
+        addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                super.keyPressed(e);
+                if(e.getKeyCode() == KeyEvent.VK_SPACE){
+                    board.shootBullet();
+                }
+            }
+        });
 
         addMouseMotionListener(new MouseMotionAdapter() {
             @Override

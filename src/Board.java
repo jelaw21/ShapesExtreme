@@ -14,11 +14,14 @@ public class Board extends JPanel implements ActionListener {
     final int friendlyNum = 10;
     final int enemyNum = 5;
 
+    private long lastMoment, currentMoment;
+
     public Board(){
         setPreferredSize(new Dimension(600,800));
         setBackground(Color.BLACK);
         timer = new Timer(1000/60, this);
         timer.start();
+        lastMoment = System.currentTimeMillis();
     }
 
     public void setup(){
@@ -55,11 +58,24 @@ public class Board extends JPanel implements ActionListener {
                     }
                 }
             }
+            if(actors.get(i) instanceof Bullet){
+                if(((Bullet) actors.get(i)).isRemove()){
+                    actors.remove(i);
+                }
+            }
         }
     }
 
     public void setPlayerPos(int x, int y){
         actors.get(0).setPosition(x, y);
+    }
+
+    public void shootBullet(){
+            currentMoment = System.currentTimeMillis();
+            if(currentMoment - lastMoment > 500) {
+                actors.add(new Bullet(Color.green, actors.get(0).x, actors.get(0).y, 5, 5));
+                lastMoment = System.currentTimeMillis();
+            }
     }
 
     public void paintComponent(Graphics g){
